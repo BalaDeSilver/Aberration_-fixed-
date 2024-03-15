@@ -1,0 +1,10 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://uk7jrii3lwfe"]
+
+[ext_resource type="Shader" path="res://assets/materials/shaders/sha_looking_glass.gdshader" id="1_pb68n"]
+
+[resource]
+resource_local_to_scene = true
+render_priority = 0
+shader = ExtResource("1_pb68n")
+shader_parameter/point_highlight = Vector3(0.185, 1.405, 0)
+shader_parameter/point_size = 3.0

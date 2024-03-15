@@ -1,0 +1,75 @@
+[gd_scene load_steps=10 format=3 uid="uid://eqt5jf5ywaky"]
+
+[ext_resource type="Script" path="res://assets/scripts/scr_scene2.gd" id="1_8r3bx"]
+[ext_resource type="Environment" uid="uid://bcscj4gmdyc3l" path="res://assets/environments/env_snc2.tres" id="2_m6dev"]
+[ext_resource type="PackedScene" uid="uid://dwowek5qda2n5" path="res://assets/scenes/doggo.tscn" id="5_00v3f"]
+[ext_resource type="PackedScene" uid="uid://8kodempdbjdx" path="res://assets/scenes/scn_cubo.tscn" id="5_i4pds"]
+[ext_resource type="Material" uid="uid://uk7jrii3lwfe" path="res://assets/materials/mat_Looking_Glass.tres" id="5_oxqe2"]
+
+[sub_resource type="Animation" id="Animation_wuhjv"]
+resource_name = "Domain_Expansion"
+length = 10.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("cubo:scale")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 10),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(1, 1, 1), Vector3(500, 1, 500)]
+}
+
+[sub_resource type="Animation" id="Animation_ncwoj"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("cubo:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_m8dt4"]
+_data = {
+"Domain_Expansion": SubResource("Animation_wuhjv"),
+"RESET": SubResource("Animation_ncwoj")
+}
+
+[sub_resource type="QuadMesh" id="QuadMesh_nkv23"]
+resource_local_to_scene = true
+material = ExtResource("5_oxqe2")
+custom_aabb = AABB(0, 0, 0, 15, 15, 15)
+flip_faces = true
+size = Vector2(2, 2)
+
+[node name="Scene2" type="Node3D"]
+script = ExtResource("1_8r3bx")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = ExtResource("2_m6dev")
+
+[node name="cubo" parent="." instance=ExtResource("5_i4pds")]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_m8dt4")
+}
+
+[node name="doggo" parent="." instance=ExtResource("5_00v3f")]
+transform = Transform3D(1.00116, 0, 0, 0, 1.00116, 0, 0, 0, 1.00116, 0, 0, 0)
+
+[node name="LookingGlass" type="MeshInstance3D" parent="."]
+visible = false
+mesh = SubResource("QuadMesh_nkv23")
+
+[node name="Speaker" type="AudioStreamPlayer" parent="."]
+volume_db = -3.0
+bus = &"BigReverb"

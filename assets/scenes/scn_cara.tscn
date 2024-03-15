@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://4bsyl5l8dtwf"]
+
+[ext_resource type="PackedScene" uid="uid://dgetcx1i1i5ui" path="res://blender/cara.blend" id="1_jwlgf"]
+[ext_resource type="Material" uid="uid://c2g07rb2boxnw" path="res://assets/materials/mat_Redacted.tres" id="2_djc3r"]
+
+[node name="cara" instance=ExtResource("1_jwlgf")]
+
+[node name="Cube" parent="metarig/Skeleton3D" index="0"]
+surface_material_override/0 = ExtResource("2_djc3r")

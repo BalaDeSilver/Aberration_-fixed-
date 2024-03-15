@@ -1,0 +1,83 @@
+[gd_scene load_steps=9 format=3 uid="uid://baxenfaumnfga"]
+
+[ext_resource type="PackedScene" uid="uid://3b6nxvy8y7l3" path="res://blender/copo.blend" id="1_hv856"]
+[ext_resource type="Shader" uid="uid://cv154gb6nx0kt" path="res://assets/materials/shaders/sha_vrido.tres" id="2_7qvbb"]
+[ext_resource type="Script" path="res://assets/scripts/scr_copo.gd" id="2_r4ijj"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_lkkdd"]
+render_priority = -128
+shader = ExtResource("2_7qvbb")
+shader_parameter/albedo = Color(0.906, 0.906, 0.906, 0.149)
+shader_parameter/albedo2 = Color(0.513726, 0.52549, 0.905882, 0.247059)
+shader_parameter/blend = 0.0
+shader_parameter/point_size = null
+shader_parameter/roughness = 1.0
+shader_parameter/metallic_texture_channel = null
+shader_parameter/specular = null
+shader_parameter/metallic = null
+shader_parameter/uv1_scale = null
+shader_parameter/uv1_offset = null
+shader_parameter/uv2_scale = null
+shader_parameter/uv2_offset = null
+
+[sub_resource type="Animation" id="Animation_sjju3"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Copo:surface_material_override/0:shader_parameter/blend")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_85h81"]
+resource_name = "copo_agua"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Copo:surface_material_override/0:shader_parameter/blend")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 1.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_rjpfu"]
+_data = {
+"RESET": SubResource("Animation_sjju3"),
+"copo_agua": SubResource("Animation_85h81")
+}
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_pnrrq"]
+size = Vector3(0.113281, 0.198853, 0.125)
+
+[node name="Copo" instance=ExtResource("1_hv856")]
+
+[node name="Copo" parent="." index="0"]
+layers = 7
+surface_material_override/0 = SubResource("ShaderMaterial_lkkdd")
+
+[node name="AnimationCopo" type="AnimationPlayer" parent="Copo" index="0"]
+root_node = NodePath("../..")
+libraries = {
+"": SubResource("AnimationLibrary_rjpfu")
+}
+
+[node name="AudioCopo" type="AudioStreamPlayer3D" parent="." index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.83206, -2.17366, -9.73474)
+bus = &"SmallReverb"
+
+[node name="Copo2" type="StaticBody3D" parent="." index="2" groups=["Interactable"]]
+script = ExtResource("2_r4ijj")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Copo2" index="0"]
+shape = SubResource("BoxShape3D_pnrrq")

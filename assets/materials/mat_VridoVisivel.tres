@@ -1,0 +1,19 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://pr4ttbnvu83u"]
+
+[ext_resource type="Shader" uid="uid://bkmnxtbpltgnk" path="res://assets/materials/shaders/sha_vrido_visivel.tres" id="1_cwni0"]
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_cwni0")
+shader_parameter/albedo = Color(1, 1, 1, 0.14902)
+shader_parameter/albedo2 = Color(0.513726, 0.52549, 0.905882, 0.247059)
+shader_parameter/blend = null
+shader_parameter/point_size = null
+shader_parameter/roughness = null
+shader_parameter/metallic_texture_channel = null
+shader_parameter/specular = null
+shader_parameter/metallic = null
+shader_parameter/uv1_scale = null
+shader_parameter/uv1_offset = null
+shader_parameter/uv2_scale = null
+shader_parameter/uv2_offset = null

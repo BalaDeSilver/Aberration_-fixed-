@@ -1,0 +1,12 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://bfwowt3633pif"]
+
+[ext_resource type="Texture2D" uid="uid://bbt6otwcpdge4" path="res://blender/textures/Concrete034_1K-PNG_Color.png" id="1_yjony"]
+
+[resource]
+diffuse_mode = 3
+specular_mode = 2
+albedo_texture = ExtResource("1_yjony")
+metallic_specular = 0.0
+uv1_triplanar = true
+uv1_world_triplanar = true
+texture_filter = 2

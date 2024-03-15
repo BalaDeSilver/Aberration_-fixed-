@@ -1,0 +1,12 @@
+Node3D
+MeshInstance3D
+Area3D
+StaticBody3D
+CollisionShape3D
+AnimationPlayer
+Control
+MarginContainer
+HBoxContainer
+VBoxContainer
+PanelContainer
+Button

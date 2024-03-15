@@ -1,0 +1,364 @@
+[gd_scene load_steps=31 format=3 uid="uid://cchcid00edlcb"]
+
+[ext_resource type="PackedScene" uid="uid://cskgdjqi7jebk" path="res://blender/corredor.blend" id="1_a73q2"]
+[ext_resource type="Script" path="res://assets/scripts/scr_corredor.gd" id="2_8el0u"]
+[ext_resource type="Script" path="res://assets/scripts/scr_load_next_scene.gd" id="3_3j7uk"]
+[ext_resource type="Environment" uid="uid://bcscj4gmdyc3l" path="res://assets/environments/env_snc2.tres" id="3_10nni"]
+[ext_resource type="Material" uid="uid://brimqjk4epdgi" path="res://assets/materials/mat_Parede1.tres" id="3_kvfo5"]
+[ext_resource type="Material" uid="uid://bfwowt3633pif" path="res://assets/materials/mat_Teto.tres" id="4_budw7"]
+[ext_resource type="Material" uid="uid://dj8s3xpyt2mf3" path="res://assets/materials/mat_ChaoDeMadeira.tres" id="5_as881"]
+[ext_resource type="Script" path="res://assets/scripts/scr_deload_prev_scene.gd" id="6_8nd3u"]
+[ext_resource type="AudioStream" uid="uid://cdb17pu2qlb5g" path="res://assets/audio/sfx/sfx_lightswitch.mp3" id="8_033vd"]
+[ext_resource type="Material" uid="uid://dpih7jfyyvdhg" path="res://assets/materials/mat_Madeira.tres" id="9_andx0"]
+[ext_resource type="Script" path="res://assets/scripts/scr_porta.gd" id="9_ey6gv"]
+[ext_resource type="Material" uid="uid://cir8q5tpnrmtu" path="res://assets/materials/mat_Metal.tres" id="10_atweb"]
+[ext_resource type="Shader" path="res://assets/materials/shaders/sha_portal.gdshader" id="11_s25cm"]
+[ext_resource type="Environment" uid="uid://busct2dfvqj37" path="res://assets/environments/env_portal.tres" id="12_4mk2t"]
+[ext_resource type="AudioStream" uid="uid://cjcpjklfy2i33" path="res://assets/audio/sfx/sfx_stretch.mp3" id="13_iixk8"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ujo0d"]
+size = Vector3(0.189453, 1.64795, 66.9812)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_qt10u"]
+size = Vector3(2.37109, 0.284607, 67.0477)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_twt78"]
+size = Vector3(5, 5, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_cuvig"]
+size = Vector3(0.776245, 2.55408, 0.161865)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_tv1f3"]
+size = Vector3(2.48608, 3.30103, 0.390625)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_w40lb"]
+size = Vector3(0.769165, 2.09143, 0.0393066)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_fp71x"]
+size = Vector3(2.38257, 1.42969, 0.150635)
+
+[sub_resource type="QuadMesh" id="QuadMesh_vbfon"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_o8fn0"]
+size = Vector3(2.37866, 3.19312, 0.726196)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_64tao"]
+resource_local_to_scene = true
+render_priority = 0
+shader = ExtResource("11_s25cm")
+
+[sub_resource type="QuadMesh" id="QuadMesh_0441k"]
+material = SubResource("ShaderMaterial_64tao")
+flip_faces = true
+size = Vector2(2.125, 2.86)
+
+[sub_resource type="Animation" id="Animation_fthox"]
+resource_name = "arm_PortaPrincipal_002"
+length = 0.416667
+tracks/0/type = "rotation_3d"
+tracks/0/imported = true
+tracks/0/enabled = true
+tracks/0/path = NodePath("arm_Porta1/Skeleton3D:Bone")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = PackedFloat32Array(0, 1, 0, -0.0199587, 0, 0.999801, 0.0333333, 1, 0, -0.0199587, 0, 0.999801, 0.0666667, 1, 0, -0.0533814, 0, 0.998574, 0.1, 1, 0, -0.109852, 0, 0.993948, 0.133333, 1, 0, -0.182416, 0, 0.983222, 0.166667, 1, 0, -0.267407, 0, 0.963584, 0.233333, 1, 0, -0.449225, 0, 0.893419, 0.266667, 1, 0, -0.529768, 0, 0.848143, 0.3, 1, 0, -0.597961, 0, 0.801525, 0.333333, 1, 0, -0.651601, 0, 0.758562, 0.366667, 1, 0, -0.684771, 0, 0.728758, 0.4, 1, 0, -0.701439, 0, 0.71273, 0.416667, 1, 0, -0.707107, 0, 0.707107)
+
+[sub_resource type="Animation" id="Animation_vlxot"]
+resource_name = "arm_PortaPrincipal_003"
+length = 0.416667
+tracks/0/type = "rotation_3d"
+tracks/0/imported = true
+tracks/0/enabled = true
+tracks/0/path = NodePath("arm_Porta2/Skeleton3D:Bone")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = PackedFloat32Array(0, 1, 0, -0.0199587, 0, 0.999801, 0.0333333, 1, 0, -0.0199587, 0, 0.999801, 0.0666667, 1, 0, -0.0533814, 0, 0.998574, 0.1, 1, 0, -0.109852, 0, 0.993948, 0.133333, 1, 0, -0.182416, 0, 0.983222, 0.166667, 1, 0, -0.267407, 0, 0.963584, 0.233333, 1, 0, -0.449225, 0, 0.893419, 0.266667, 1, 0, -0.529768, 0, 0.848143, 0.3, 1, 0, -0.597961, 0, 0.801525, 0.333333, 1, 0, -0.651601, 0, 0.758562, 0.366667, 1, 0, -0.684771, 0, 0.728758, 0.4, 1, 0, -0.701439, 0, 0.71273, 0.416667, 1, 0, -0.707107, 0, 0.707107)
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_8skkr"]
+_data = {
+"arm_Porta1Action": SubResource("Animation_fthox"),
+"arm_Porta2Action": SubResource("Animation_vlxot")
+}
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_3udcx"]
+size = Vector3(0.189453, 1.73242, 10.1251)
+
+[node name="corredor" instance=ExtResource("1_a73q2")]
+script = ExtResource("2_8el0u")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." index="0"]
+environment = ExtResource("3_10nni")
+
+[node name="Corredor" parent="." index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 2.5, 0, 0, 3)
+layers = 2
+surface_material_override/0 = ExtResource("3_kvfo5")
+surface_material_override/1 = ExtResource("4_budw7")
+surface_material_override/2 = ExtResource("5_as881")
+
+[node name="ParedeL" type="StaticBody3D" parent="." index="2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.096, -0.447, 30.5)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="ParedeL" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.323975, 1.00885)
+shape = SubResource("BoxShape3D_ujo0d")
+
+[node name="ParedeR" type="StaticBody3D" parent="." index="3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.096, -0.447, 30.5)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="ParedeR" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.324, 1.009)
+shape = SubResource("BoxShape3D_ujo0d")
+
+[node name="Chao" type="StaticBody3D" parent="." index="4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.49662, 30.5)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Chao" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0606995, 1.015)
+shape = SubResource("BoxShape3D_qt10u")
+
+[node name="loader" type="Area3D" parent="." index="5"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 42)
+script = ExtResource("3_3j7uk")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="loader" index="0"]
+shape = SubResource("BoxShape3D_twt78")
+
+[node name="Parede1" parent="." index="6"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.22, 8)
+layers = 2
+surface_material_override/0 = ExtResource("3_kvfo5")
+surface_material_override/1 = ExtResource("4_budw7")
+surface_material_override/2 = ExtResource("5_as881")
+
+[node name="ParedeL" type="StaticBody3D" parent="Parede1" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.828713, -0.447, 0.00130033)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Parede1/ParedeL" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0269165, 0.251892, 0)
+shape = SubResource("BoxShape3D_cuvig")
+
+[node name="ParedeR" type="StaticBody3D" parent="Parede1" index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.829, -0.447, 0.001)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Parede1/ParedeR" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0269165, 0.251892, 0)
+shape = SubResource("BoxShape3D_cuvig")
+
+[node name="Parede2" parent="." index="7"]
+layers = 2
+surface_material_override/0 = ExtResource("3_kvfo5")
+surface_material_override/1 = ExtResource("4_budw7")
+surface_material_override/2 = ExtResource("5_as881")
+
+[node name="ParedeL" type="StaticBody3D" parent="Parede2" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.828713, -0.447, 0.00130033)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Parede2/ParedeL" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0269165, 0.251892, 0)
+shape = SubResource("BoxShape3D_cuvig")
+
+[node name="ParedeR" type="StaticBody3D" parent="Parede2" index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.829, -0.447, 0.001)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Parede2/ParedeR" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0269165, 0.251892, 0)
+shape = SubResource("BoxShape3D_cuvig")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="Parede2" index="2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.840818)
+layers = 15
+
+[node name="StingerDettect" type="Area3D" parent="." index="8"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 3.16451)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StingerDettect" index="0"]
+shape = SubResource("BoxShape3D_tv1f3")
+
+[node name="StingerPlayer" type="AudioStreamPlayer3D" parent="StingerDettect" index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 3.21959)
+stream = ExtResource("13_iixk8")
+volume_db = -8.0
+bus = &"BigReverb"
+
+[node name="arm_Porta1" parent="." index="9"]
+unique_name_in_owner = true
+transform = Transform3D(-1, 0, -3.25841e-07, 0, 1, 0, 3.25841e-07, 0, -1, 0.007, -0.439, 8)
+
+[node name="Porta1" parent="arm_Porta1/Skeleton3D" index="0"]
+layers = 2
+surface_material_override/0 = ExtResource("9_andx0")
+surface_material_override/1 = ExtResource("10_atweb")
+
+[node name="BoneAttachment3D" type="BoneAttachment3D" parent="arm_Porta1/Skeleton3D" index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.379828, -0.5017, -1.26046e-07)
+bone_name = "Bone"
+bone_idx = 0
+
+[node name="Porta1" type="StaticBody3D" parent="arm_Porta1/Skeleton3D/BoneAttachment3D" index="0" groups=["Interactable"]]
+script = ExtResource("9_ey6gv")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="arm_Porta1/Skeleton3D/BoneAttachment3D/Porta1" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.375915, 0.586305, 2.38419e-07)
+shape = SubResource("BoxShape3D_w40lb")
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="arm_Porta1/Skeleton3D/BoneAttachment3D/Porta1" index="1"]
+volume_db = -3.0
+bus = &"SmallReverb"
+
+[node name="arm_Porta2" parent="." index="10"]
+unique_name_in_owner = true
+
+[node name="Porta2" parent="arm_Porta2/Skeleton3D" index="0"]
+layers = 2
+surface_material_override/0 = ExtResource("9_andx0")
+surface_material_override/1 = ExtResource("10_atweb")
+
+[node name="BoneAttachment3D" type="BoneAttachment3D" parent="arm_Porta2/Skeleton3D" index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.379828, -0.5017, -1.19209e-07)
+bone_name = "Bone"
+bone_idx = 0
+
+[node name="Porta2" type="StaticBody3D" parent="arm_Porta2/Skeleton3D/BoneAttachment3D" index="0" groups=["Interactable"]]
+script = ExtResource("9_ey6gv")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="arm_Porta2/Skeleton3D/BoneAttachment3D/Porta2" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.374467, 0.598616, -0.00978231)
+shape = SubResource("BoxShape3D_w40lb")
+disabled = true
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="arm_Porta2/Skeleton3D/BoneAttachment3D/Porta2" index="1"]
+bus = &"SmallReverb"
+
+[node name="ParedeFechada" parent="." index="11"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.22, 8)
+layers = 8
+surface_material_override/0 = ExtResource("3_kvfo5")
+surface_material_override/1 = ExtResource("4_budw7")
+surface_material_override/2 = ExtResource("5_as881")
+
+[node name="ParedeFechada" type="StaticBody3D" parent="ParedeFechada" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.546608, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="ParedeFechada/ParedeFechada" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.000152588, -0.214844, 0)
+shape = SubResource("BoxShape3D_fp71x")
+
+[node name="Debugquad" type="MeshInstance3D" parent="." index="12"]
+transform = Transform3D(-25, 0, 2.18557e-06, 0, 25, 0, -2.18557e-06, 0, -25, 0, 0, 63)
+visible = false
+layers = 2
+mesh = SubResource("QuadMesh_vbfon")
+skeleton = NodePath("../Parede2")
+
+[node name="AreaPortal1" type="Area3D" parent="." index="13"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1.61718)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="AreaPortal1" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.00164795)
+shape = SubResource("BoxShape3D_o8fn0")
+
+[node name="Portal1" type="MeshInstance3D" parent="AreaPortal1" index="1"]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.37121)
+layers = 4
+mesh = SubResource("QuadMesh_0441k")
+
+[node name="Portalport" type="SubViewportContainer" parent="AreaPortal1/Portal1" index="0"]
+self_modulate = Color(1, 1, 1, 0)
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Portalport_entrance" type="SubViewport" parent="AreaPortal1/Portal1/Portalport" index="0"]
+unique_name_in_owner = true
+handle_input_locally = false
+size = Vector2i(2560, 1080)
+render_target_update_mode = 4
+
+[node name="PortalCamera_entrance" type="Camera3D" parent="AreaPortal1/Portal1/Portalport/Portalport_entrance" index="0"]
+unique_name_in_owner = true
+cull_mask = 1048554
+environment = ExtResource("12_4mk2t")
+current = true
+fov = 90.0
+
+[node name="AreaPortal2" type="Area3D" parent="." index="14"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, -1, 0, 0, 64.6556)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="AreaPortal2" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.00164795)
+shape = SubResource("BoxShape3D_o8fn0")
+
+[node name="Portal2" type="MeshInstance3D" parent="AreaPortal2" index="1"]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.271851)
+layers = 4
+mesh = SubResource("QuadMesh_0441k")
+
+[node name="Portalport" type="SubViewportContainer" parent="AreaPortal2/Portal2" index="0"]
+self_modulate = Color(1, 1, 1, 0)
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Portalport_exit" type="SubViewport" parent="AreaPortal2/Portal2/Portalport" index="0"]
+unique_name_in_owner = true
+handle_input_locally = false
+size = Vector2i(2560, 1080)
+render_target_update_mode = 4
+
+[node name="PortalCamera_exit" type="Camera3D" parent="AreaPortal2/Portal2/Portalport/Portalport_exit" index="0"]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 63.7697)
+cull_mask = 1048554
+environment = ExtResource("12_4mk2t")
+current = true
+fov = 90.0
+
+[node name="Cubo_Location" type="Node3D" parent="." index="15"]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0.007, -1.399, 72.6851)
+
+[node name="Banheiro_Location" type="Node3D" parent="." index="16"]
+transform = Transform3D(1, 0, 1.74846e-07, 0, 1, 0, -1.74846e-07, 0, 1, 3.68181, -1.399, 66.4119)
+
+[node name="AnimationPlayer" parent="." index="17"]
+unique_name_in_owner = true
+libraries = {
+"": SubResource("AnimationLibrary_8skkr")
+}
+
+[node name="Level2Colliders" type="Node3D" parent="." index="18"]
+
+[node name="ParedeL" type="StaticBody3D" parent="Level2Colliders" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.09812, -0.726845, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Level2Colliders/ParedeL" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0810547, 2.95764)
+shape = SubResource("BoxShape3D_3udcx")
+
+[node name="ParedeR" type="StaticBody3D" parent="Level2Colliders" index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.098, -0.727, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Level2Colliders/ParedeR" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0810547, 2.98834)
+shape = SubResource("BoxShape3D_3udcx")
+
+[node name="deloader" type="Area3D" parent="." index="19"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 21)
+script = ExtResource("6_8nd3u")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="deloader" index="0"]
+shape = SubResource("BoxShape3D_twt78")
+
+[node name="NotABug" type="AudioStreamPlayer3D" parent="deloader" index="1"]
+stream = ExtResource("8_033vd")
+volume_db = 6.0
+max_db = 6.0
+bus = &"SmallReverb"
+
+[connection signal="body_entered" from="loader" to="loader" method="_on_body_entered"]
+[connection signal="body_entered" from="StingerDettect" to="." method="_on_stinger_dettect_body_entered"]
+[connection signal="body_entered" from="AreaPortal1" to="." method="_on_area_portal_1_body_entered"]
+[connection signal="body_exited" from="AreaPortal1" to="." method="_on_area_portal_1_body_exited"]
+[connection signal="body_entered" from="AreaPortal2" to="." method="_on_area_portal_2_body_entered"]
+[connection signal="body_exited" from="AreaPortal2" to="." method="_on_area_portal_2_body_exited"]
+[connection signal="body_entered" from="deloader" to="deloader" method="_on_body_entered"]

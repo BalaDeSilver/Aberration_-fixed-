@@ -1,0 +1,36 @@
+[gd_scene load_steps=10 format=3 uid="uid://c4p8of1m8cu7j"]
+
+[ext_resource type="AudioStream" uid="uid://di7vh0ubnm6a2" path="res://assets/audio/sfx/sfx_bark_0.mp3" id="1_cq14n"]
+[ext_resource type="AudioStream" uid="uid://daftunnacrtbr" path="res://assets/audio/sfx/sfx_bark_1.mp3" id="2_ls35v"]
+[ext_resource type="AudioStream" uid="uid://epq6o7pcl8he" path="res://assets/audio/sfx/sfx_bark_2.mp3" id="3_cye73"]
+[ext_resource type="AudioStream" uid="uid://da8pnuhi7lvoj" path="res://assets/audio/sfx/sfx_bark_3.mp3" id="4_dwnnx"]
+[ext_resource type="AudioStream" uid="uid://d3mk5mba7wpu" path="res://assets/audio/sfx/sfx_bark_4.mp3" id="5_irsx4"]
+[ext_resource type="AudioStream" uid="uid://cjenuxtruyihk" path="res://assets/audio/sfx/sfx_bark_5.mp3" id="6_yo7hv"]
+[ext_resource type="AudioStream" uid="uid://cyg3jocnehh48" path="res://assets/audio/sfx/sfx_bark_6.mp3" id="7_3c50j"]
+[ext_resource type="Script" path="res://assets/scripts/scr_DogBarking.gd" id="8_mr4lu"]
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_8wmig"]
+random_pitch = 1.2
+random_volume_offset_db = 1.5
+streams_count = 7
+stream_0/stream = ExtResource("1_cq14n")
+stream_0/weight = 1.0
+stream_1/stream = ExtResource("2_ls35v")
+stream_1/weight = 1.0
+stream_2/stream = ExtResource("3_cye73")
+stream_2/weight = 1.0
+stream_3/stream = ExtResource("4_dwnnx")
+stream_3/weight = 1.0
+stream_4/stream = ExtResource("5_irsx4")
+stream_4/weight = 1.0
+stream_5/stream = ExtResource("6_yo7hv")
+stream_5/weight = 1.0
+stream_6/stream = ExtResource("7_3c50j")
+stream_6/weight = 1.0
+
+[node name="DogBarking" type="AudioStreamPlayer3D"]
+stream = SubResource("AudioStreamRandomizer_8wmig")
+bus = &"SmallReverb"
+script = ExtResource("8_mr4lu")
+
+[connection signal="finished" from="." to="." method="_on_finished"]

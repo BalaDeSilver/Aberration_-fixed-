@@ -1,0 +1,12 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://cir8q5tpnrmtu"]
+
+[ext_resource type="Texture2D" uid="uid://0x86jpnr1wuo" path="res://blender/textures/Metal012_1K-PNG_Color.png" id="1_05erv"]
+
+[resource]
+diffuse_mode = 3
+specular_mode = 2
+albedo_texture = ExtResource("1_05erv")
+metallic_specular = 0.0
+uv1_triplanar = true
+uv1_world_triplanar = true
+texture_filter = 2

@@ -1,0 +1,12 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://cj1aind6y1lfw"]
+
+[ext_resource type="Texture2D" uid="uid://fbgiq2w7cmxm" path="res://blender/textures/PavingStones136_1K-PNG_Color.png" id="1_kho2u"]
+
+[resource]
+diffuse_mode = 3
+specular_mode = 2
+albedo_texture = ExtResource("1_kho2u")
+metallic_specular = 0.0
+uv1_triplanar = true
+uv1_world_triplanar = true
+texture_filter = 2

@@ -1,0 +1,57 @@
+[gd_scene load_steps=5 format=3 uid="uid://c2h7ri4x0h64r"]
+
+[ext_resource type="Script" path="res://assets/scripts/scr_player.gd" id="1_e0okj"]
+[ext_resource type="PackedScene" uid="uid://drl3c0i81uv5k" path="res://assets/UI/scn_UI.tscn" id="2_kur2o"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_coriy"]
+radius = 0.25
+height = 0.5
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_ng2a4"]
+radius = 0.333
+height = 1.8
+
+[node name="Player" type="CharacterBody3D" groups=["Player"]]
+top_level = true
+script = ExtResource("1_e0okj")
+
+[node name="UI" parent="." instance=ExtResource("2_kur2o")]
+process_mode = 3
+
+[node name="Pivot" type="Node3D" parent="."]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.75, 0)
+
+[node name="Camera" type="Camera3D" parent="Pivot"]
+cull_mask = 1048565
+current = true
+fov = 90.0
+
+[node name="RayCast3D" type="RayCast3D" parent="Pivot/Camera"]
+target_position = Vector3(0, 0, -2)
+hit_back_faces = false
+debug_shape_custom_color = Color(0, 0.439216, 0.717647, 1)
+debug_shape_thickness = 1
+
+[node name="RemoteTransform" type="RemoteTransform3D" parent="Pivot/Camera"]
+
+[node name="RemoteTransform2" type="RemoteTransform3D" parent="Pivot/Camera"]
+
+[node name="Hand" type="Node3D" parent="Pivot/Camera"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.784022, -0.32996, -0.571492)
+
+[node name="debugmesh" type="MeshInstance3D" parent="Pivot/Camera/Hand"]
+visible = false
+mesh = SubResource("SphereMesh_coriy")
+skeleton = NodePath("../../../..")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("CapsuleShape3D_ng2a4")
+
+[node name="FootstepPlayer" type="AudioStreamPlayer3D" parent="."]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.842642, 0)
+volume_db = 2.0
+bus = &"SmallReverb"
+
+[connection signal="finished" from="FootstepPlayer" to="." method="_on_footstep_player_finished"]

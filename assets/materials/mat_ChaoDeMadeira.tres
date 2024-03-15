@@ -1,0 +1,12 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://dj8s3xpyt2mf3"]
+
+[ext_resource type="Texture2D" uid="uid://b83kufsah1j8l" path="res://blender/textures/WoodFloor043_1K-PNG_Color.png" id="1_oi5kn"]
+
+[resource]
+diffuse_mode = 3
+specular_mode = 2
+albedo_texture = ExtResource("1_oi5kn")
+metallic_specular = 0.0
+uv1_triplanar = true
+uv1_world_triplanar = true
+texture_filter = 2

@@ -1,0 +1,12 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://bx6je0mo0x5tp"]
+
+[ext_resource type="Texture2D" uid="uid://dkdauqp34nsk6" path="res://assets/UI/MainMenu/wallpaper.png" id="1_6e6yr"]
+
+[resource]
+diffuse_mode = 3
+albedo_texture = ExtResource("1_6e6yr")
+metallic_specular = 0.0
+emission_enabled = true
+emission_energy_multiplier = 0.5
+emission_texture = ExtResource("1_6e6yr")
+texture_filter = 2

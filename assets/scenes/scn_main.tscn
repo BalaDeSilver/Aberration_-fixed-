@@ -1,0 +1,565 @@
+[gd_scene load_steps=21 format=3 uid="uid://dtct2t4gdnceb"]
+
+[ext_resource type="Theme" uid="uid://cvlve38wsjfl5" path="res://assets/environments/UI_Theme.tres" id="1_7nse4"]
+[ext_resource type="PackedScene" uid="uid://b26skf18sngy2" path="res://assets/scenes/scn_casa.tscn" id="2_rn7sx"]
+[ext_resource type="Texture2D" uid="uid://bhcukooem0ij8" path="res://assets/UI/HUDTextures/crosshair.png" id="3_16q5q"]
+[ext_resource type="Script" path="res://assets/scripts/scr_scene1.gd" id="3_akela"]
+[ext_resource type="Texture2D" uid="uid://c02ioxwf2u1un" path="res://assets/UI/MainMenu/Background.png" id="4_djrhr"]
+[ext_resource type="PackedScene" uid="uid://baxenfaumnfga" path="res://assets/scenes/scn_copo.tscn" id="5_ovbmc"]
+[ext_resource type="Environment" uid="uid://dyxwevfmfc5h8" path="res://assets/environments/env_default.tres" id="7_a7bb1"]
+[ext_resource type="Texture2D" uid="uid://bdfrk0pb28jhf" path="res://icon.svg" id="7_xx480"]
+[ext_resource type="AudioStream" uid="uid://ds4byc637755" path="res://assets/audio/sfx/sfx_standup.mp3" id="8_3jhrf"]
+[ext_resource type="AudioStream" uid="uid://0566yve5gotd" path="res://assets/audio/mus/mus_Time.mp3" id="9_0afno"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jr2n3"]
+content_margin_left = 5.0
+content_margin_top = 5.0
+content_margin_right = 5.0
+content_margin_bottom = 5.0
+bg_color = Color(0.0823529, 0.0666667, 0.117647, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.796078, 0.435294, 0.878431, 1)
+border_blend = true
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tj2ms"]
+bg_color = Color(0.152941, 0.121569, 0.215686, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_blend = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_n6kte"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_kpty6"]
+material = SubResource("StandardMaterial3D_n6kte")
+size = Vector3(500, 1, 500)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_h3oh8"]
+size = Vector3(100, 1, 100)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_py5f7"]
+resource_local_to_scene = true
+emission_enabled = true
+
+[sub_resource type="QuadMesh" id="QuadMesh_fqh7i"]
+resource_local_to_scene = true
+material = SubResource("StandardMaterial3D_py5f7")
+size = Vector2(0.593, 0.25)
+orientation = 0
+
+[sub_resource type="Animation" id="Animation_k4ich"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("MainMenu/CameraMenu:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(-0.840554, 0.0607734, -0.00260401)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("MainMenu/CameraMenu:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(-0.0700226, -1.5708, 3.0658e-09)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("MainMenu/CameraMenu:fov")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [30.0]
+}
+
+[sub_resource type="Animation" id="Animation_b2jtv"]
+resource_name = "Start_Game"
+length = 4.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("MainMenu/CameraMenu:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.3, 1.5, 1.7, 2.3, 2.7, 3.3, 4.4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(-0.840554, 0.0607734, -0.00260401), Vector3(-1.36644, 0.0607734, -0.00260401), Vector3(-1.36644, 0.0607734, -0.00260401), Vector3(-1.19592, 0.122201, -0.00260401), Vector3(-1.01458, 0.424582, -0.00260401), Vector3(-1.015, 0.613, -0.003), Vector3(-1.11522, 0.613, 0.615556), Vector3(-1.39398, 0.61263, 1.55366)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("MainMenu/CameraMenu:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1.3, 1.5, 2.7, 3.3, 4.4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(-0.0700226, -1.5708, 3.0658e-09), Vector3(0, -1.5708, 0), Vector3(0, -1.5708, 0), Vector3(0, -1.5708, 0), Vector3(-0.296793, -0.730961, 1.33681e-08), Vector3(0, -0.590218, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("MainMenu/CameraMenu:fov")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 1.3, 1.5, 4.4),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [30.0, 75.0, 75.0, 90.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_2oe75"]
+_data = {
+"RESET": SubResource("Animation_k4ich"),
+"Start_Game": SubResource("Animation_b2jtv")
+}
+
+[node name="ScnMaster" type="Node3D"]
+
+[node name="Scene1" type="Node3D" parent="." groups=["Level1"]]
+script = ExtResource("3_akela")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="Scene1"]
+unique_name_in_owner = true
+environment = ExtResource("7_a7bb1")
+
+[node name="SubViewportContainer" type="SubViewportContainer" parent="Scene1"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+stretch = true
+metadata/_edit_use_anchors_ = true
+
+[node name="SubViewport" type="SubViewport" parent="Scene1/SubViewportContainer"]
+disable_3d = true
+handle_input_locally = false
+size = Vector2i(1920, 1080)
+size_2d_override = Vector2i(1280, 540)
+size_2d_override_stretch = true
+render_target_update_mode = 4
+
+[node name="Control" type="Control" parent="Scene1/SubViewportContainer/SubViewport"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme = ExtResource("1_7nse4")
+
+[node name="TextureRect" type="TextureRect" parent="Scene1/SubViewportContainer/SubViewport/Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("4_djrhr")
+expand_mode = 2
+
+[node name="ColorRect2" type="ColorRect" parent="Scene1/SubViewportContainer/SubViewport/Control"]
+self_modulate = Color(1, 1, 1, 0.5)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="ColorRect" type="ColorRect" parent="Scene1/SubViewportContainer/SubViewport/Control"]
+custom_minimum_size = Vector2(562, 317)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.866667, 0.278431, 1, 1)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Scene1/SubViewportContainer/SubViewport/Control/ColorRect"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -280.0
+offset_top = -157.5
+offset_right = 280.0
+offset_bottom = 157.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Scene1/SubViewportContainer/SubViewport/Control/ColorRect/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_constants/separation = 0
+
+[node name="ColorRect2" type="ColorRect" parent="Scene1/SubViewportContainer/SubViewport/Control/ColorRect/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(545, 15)
+layout_mode = 2
+size_flags_horizontal = 3
+color = Color(0.533333, 0.0901961, 0.596078, 1)
+
+[node name="ColorRect3" type="ColorRect" parent="Scene1/SubViewportContainer/SubViewport/Control/ColorRect/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(15, 15)
+layout_mode = 2
+color = Color(0.768627, 0.168627, 0.109804, 1)
+
+[node name="btnQuit" type="TextureButton" parent="Scene1/SubViewportContainer/SubViewport/Control/ColorRect/VBoxContainer/HBoxContainer/ColorRect3"]
+custom_minimum_size = Vector2(15, 15)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -32.0
+offset_top = -32.0
+offset_right = 32.0
+offset_bottom = 32.0
+grow_horizontal = 2
+grow_vertical = 2
+rotation = 0.785398
+pivot_offset = Vector2(32.5, 31.5)
+mouse_default_cursor_shape = 2
+texture_normal = ExtResource("3_16q5q")
+
+[node name="ColorRect" type="ColorRect" parent="Scene1/SubViewportContainer/SubViewport/Control/ColorRect/VBoxContainer"]
+custom_minimum_size = Vector2(560, 300)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+color = Color(0.0823529, 0.0666667, 0.117647, 1)
+
+[node name="MarginContainer" type="MarginContainer" parent="Scene1/SubViewportContainer/SubViewport/Control/ColorRect/VBoxContainer/ColorRect"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="TabContainer" type="TabContainer" parent="Scene1/SubViewportContainer/SubViewport/Control/ColorRect/VBoxContainer/ColorRect/MarginContainer"]
+layout_mode = 2
+all_tabs_in_front = true
+
+[node name="Play" type="TabBar" parent="Scene1/SubViewportContainer/SubViewport/Control/ColorRect/VBoxContainer/ColorRect/MarginContainer/TabContainer"]
+layout_mode = 2
+focus_neighbor_left = NodePath("../Options")
+focus_neighbor_right = NodePath("../Options")
+focus_neighbor_bottom = NodePath("HBoxContainer/PanelContainer/VBoxContainer/btnPlay")
+scroll_to_selected = false
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Scene1/SubViewportContainer/SubViewport/Control/ColorRect/VBoxContainer/ColorRect/MarginContainer/TabContainer/Play"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Scene1/SubViewportContainer/SubViewport/Control/ColorRect/VBoxContainer/ColorRect/MarginContainer/TabContainer/Play/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="HSeparator" type="HSeparator" parent="Scene1/SubViewportContainer/SubViewport/Control/ColorRect/VBoxContainer/ColorRect/MarginContainer/TabContainer/Play/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="Scene1/SubViewportContainer/SubViewport/Control/ColorRect/VBoxContainer/ColorRect/MarginContainer/TabContainer/Play/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+theme_override_styles/panel = SubResource("StyleBoxFlat_jr2n3")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Scene1/SubViewportContainer/SubViewport/Control/ColorRect/VBoxContainer/ColorRect/MarginContainer/TabContainer/Play/HBoxContainer/VBoxContainer/PanelContainer"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="Scene1/SubViewportContainer/SubViewport/Control/ColorRect/VBoxContainer/ColorRect/MarginContainer/TabContainer/Play/HBoxContainer/VBoxContainer/PanelContainer/HBoxContainer"]
+custom_minimum_size = Vector2(45, 45)
+layout_mode = 2
+texture = ExtResource("7_xx480")
+expand_mode = 3
+stretch_mode = 4
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Scene1/SubViewportContainer/SubViewport/Control/ColorRect/VBoxContainer/ColorRect/MarginContainer/TabContainer/Play/HBoxContainer/VBoxContainer/PanelContainer/HBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Scene1/SubViewportContainer/SubViewport/Control/ColorRect/VBoxContainer/ColorRect/MarginContainer/TabContainer/Play/HBoxContainer/VBoxContainer/PanelContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 1
+text = "What I'm not"
+
+[node name="Label2" type="Label" parent="Scene1/SubViewportContainer/SubViewport/Control/ColorRect/VBoxContainer/ColorRect/MarginContainer/TabContainer/Play/HBoxContainer/VBoxContainer/PanelContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.462745, 0.443137, 0.501961, 1)
+theme_override_font_sizes/font_size = 8
+text = "Acerola Jam 0"
+
+[node name="PanelContainer" type="PanelContainer" parent="Scene1/SubViewportContainer/SubViewport/Control/ColorRect/VBoxContainer/ColorRect/MarginContainer/TabContainer/Play/HBoxContainer"]
+custom_minimum_size = Vector2(110, 0)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_tj2ms")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Scene1/SubViewportContainer/SubViewport/Control/ColorRect/VBoxContainer/ColorRect/MarginContainer/TabContainer/Play/HBoxContainer/PanelContainer"]
+layout_mode = 2
+
+[node name="btnPlay" type="Button" parent="Scene1/SubViewportContainer/SubViewport/Control/ColorRect/VBoxContainer/ColorRect/MarginContainer/TabContainer/Play/HBoxContainer/PanelContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 0
+focus_neighbor_left = NodePath("../../../..")
+focus_neighbor_top = NodePath("../btnQuit")
+focus_neighbor_bottom = NodePath("../btnLoad")
+mouse_default_cursor_shape = 2
+text = "Play"
+
+[node name="btnLoad" type="Button" parent="Scene1/SubViewportContainer/SubViewport/Control/ColorRect/VBoxContainer/ColorRect/MarginContainer/TabContainer/Play/HBoxContainer/PanelContainer/VBoxContainer"]
+visible = false
+layout_mode = 2
+size_flags_vertical = 0
+focus_neighbor_left = NodePath("../../../..")
+focus_neighbor_top = NodePath("../btnPlay")
+focus_neighbor_bottom = NodePath("../btnQuit")
+mouse_default_cursor_shape = 2
+disabled = true
+text = "Load
+"
+
+[node name="btnQuit" type="Button" parent="Scene1/SubViewportContainer/SubViewport/Control/ColorRect/VBoxContainer/ColorRect/MarginContainer/TabContainer/Play/HBoxContainer/PanelContainer/VBoxContainer"]
+layout_mode = 2
+focus_neighbor_left = NodePath("../../../..")
+focus_neighbor_top = NodePath("../btnLoad")
+focus_neighbor_bottom = NodePath("../btnPlay")
+mouse_default_cursor_shape = 2
+text = "Quit Game"
+
+[node name="Options" type="TabBar" parent="Scene1/SubViewportContainer/SubViewport/Control/ColorRect/VBoxContainer/ColorRect/MarginContainer/TabContainer"]
+visible = false
+layout_mode = 2
+focus_neighbor_left = NodePath("../Play")
+focus_neighbor_right = NodePath("../Play")
+scroll_to_selected = false
+
+[node name="MarginContainer" type="MarginContainer" parent="Scene1/SubViewportContainer/SubViewport/Control/ColorRect/VBoxContainer/ColorRect/MarginContainer/TabContainer/Options"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 15
+theme_override_constants/margin_top = 15
+theme_override_constants/margin_right = 15
+theme_override_constants/margin_bottom = 15
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Scene1/SubViewportContainer/SubViewport/Control/ColorRect/VBoxContainer/ColorRect/MarginContainer/TabContainer/Options/MarginContainer"]
+layout_mode = 2
+size_flags_vertical = 0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Scene1/SubViewportContainer/SubViewport/Control/ColorRect/VBoxContainer/ColorRect/MarginContainer/TabContainer/Options/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Scene1/SubViewportContainer/SubViewport/Control/ColorRect/VBoxContainer/ColorRect/MarginContainer/TabContainer/Options/MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Master" type="HSlider" parent="Scene1/SubViewportContainer/SubViewport/Control/ColorRect/VBoxContainer/ColorRect/MarginContainer/TabContainer/Options/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+mouse_default_cursor_shape = 2
+max_value = 2.0
+step = 0.001
+value = 0.5
+
+[node name="PercentMaster" type="Label" parent="Scene1/SubViewportContainer/SubViewport/Control/ColorRect/VBoxContainer/ColorRect/MarginContainer/TabContainer/Options/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 4
+text = "50%"
+vertical_alignment = 1
+
+[node name="Label" type="Label" parent="Scene1/SubViewportContainer/SubViewport/Control/ColorRect/VBoxContainer/ColorRect/MarginContainer/TabContainer/Options/MarginContainer/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 6
+text = "Master Volume"
+horizontal_alignment = 1
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="Scene1/SubViewportContainer/SubViewport/Control/ColorRect/VBoxContainer/ColorRect/MarginContainer/TabContainer/Options/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Scene1/SubViewportContainer/SubViewport/Control/ColorRect/VBoxContainer/ColorRect/MarginContainer/TabContainer/Options/MarginContainer/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="SFX" type="HSlider" parent="Scene1/SubViewportContainer/SubViewport/Control/ColorRect/VBoxContainer/ColorRect/MarginContainer/TabContainer/Options/MarginContainer/VBoxContainer/HBoxContainer2/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+mouse_default_cursor_shape = 2
+max_value = 2.0
+step = 0.001
+value = 1.0
+
+[node name="PercentSFX" type="Label" parent="Scene1/SubViewportContainer/SubViewport/Control/ColorRect/VBoxContainer/ColorRect/MarginContainer/TabContainer/Options/MarginContainer/VBoxContainer/HBoxContainer2/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 4
+text = "100%"
+vertical_alignment = 1
+
+[node name="Label2" type="Label" parent="Scene1/SubViewportContainer/SubViewport/Control/ColorRect/VBoxContainer/ColorRect/MarginContainer/TabContainer/Options/MarginContainer/VBoxContainer/HBoxContainer2"]
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+size_flags_vertical = 6
+text = "SFX Volume"
+horizontal_alignment = 1
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="Scene1/SubViewportContainer/SubViewport/Control/ColorRect/VBoxContainer/ColorRect/MarginContainer/TabContainer/Options/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Scene1/SubViewportContainer/SubViewport/Control/ColorRect/VBoxContainer/ColorRect/MarginContainer/TabContainer/Options/MarginContainer/VBoxContainer/HBoxContainer3"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="MUS" type="HSlider" parent="Scene1/SubViewportContainer/SubViewport/Control/ColorRect/VBoxContainer/ColorRect/MarginContainer/TabContainer/Options/MarginContainer/VBoxContainer/HBoxContainer3/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+mouse_default_cursor_shape = 2
+max_value = 2.0
+step = 0.001
+value = 1.0
+
+[node name="PercentMUS" type="Label" parent="Scene1/SubViewportContainer/SubViewport/Control/ColorRect/VBoxContainer/ColorRect/MarginContainer/TabContainer/Options/MarginContainer/VBoxContainer/HBoxContainer3/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 4
+text = "100%"
+vertical_alignment = 1
+
+[node name="Label3" type="Label" parent="Scene1/SubViewportContainer/SubViewport/Control/ColorRect/VBoxContainer/ColorRect/MarginContainer/TabContainer/Options/MarginContainer/VBoxContainer/HBoxContainer3"]
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+text = "Music Volume"
+horizontal_alignment = 1
+
+[node name="Floor" type="MeshInstance3D" parent="Scene1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -7.22676, 0)
+mesh = SubResource("BoxMesh_kpty6")
+skeleton = NodePath("")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Scene1/Floor"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Scene1/Floor/StaticBody3D"]
+shape = SubResource("BoxShape3D_h3oh8")
+
+[node name="Casa" parent="Scene1" instance=ExtResource("2_rn7sx")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0461316, -6.69033, 0.00143135)
+
+[node name="Node3D" type="Node3D" parent="Scene1"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 6.349, -5.281, -1.554)
+
+[node name="MainMenu" type="Node3D" parent="Scene1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.832, -5.649, -4.787)
+
+[node name="CameraMenu" type="Camera3D" parent="Scene1/MainMenu"]
+unique_name_in_owner = true
+transform = Transform3D(-3.61978e-06, 0.0699654, -0.997549, 3.05829e-09, 0.997549, 0.0699654, 1, 2.50208e-07, -3.61112e-06, -0.840554, 0.0607734, -0.00260401)
+environment = ExtResource("7_a7bb1")
+current = true
+fov = 30.0
+
+[node name="MainMenuScreen" type="MeshInstance3D" parent="Scene1/MainMenu"]
+unique_name_in_owner = true
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 0)
+mesh = SubResource("QuadMesh_fqh7i")
+skeleton = NodePath("../../Casa")
+
+[node name="Camera_Destination" type="Node3D" parent="Scene1/MainMenu"]
+transform = Transform3D(0.830819, 0, -0.556542, 0, 1, 0, 0.556542, 0, 0.830819, -1.39398, 0.61263, 1.55366)
+
+[node name="Audio_Begin" type="AudioStreamPlayer3D" parent="Scene1/MainMenu"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.25832, 0, 0)
+stream = ExtResource("8_3jhrf")
+bus = &"SmallReverb"
+
+[node name="Audio_Mus" type="AudioStreamPlayer3D" parent="Scene1/MainMenu"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.181273, 0, 0)
+stream = ExtResource("9_0afno")
+volume_db = 6.0
+autoplay = true
+bus = &"Mus_Begin"
+
+[node name="Corredor_spawn_coords" type="Node3D" parent="Scene1"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 6.44602, -5.281, -1.562)
+
+[node name="Sun" type="DirectionalLight3D" parent="Scene1"]
+transform = Transform3D(-0.436826, -0.487825, 0.755784, -0.327102, 0.868809, 0.37172, -0.837966, -0.0848417, -0.539087, 0, 0, 0)
+top_level = true
+light_color = Color(1, 0.952941, 0.835294, 1)
+shadow_enabled = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Scene1"]
+libraries = {
+"": SubResource("AnimationLibrary_2oe75")
+}
+
+[node name="Playcerholder" type="Node3D" parent="Scene1"]
+unique_name_in_owner = true
+transform = Transform3D(0.830819, 0, -0.556542, 0, 1, 0, 0.556542, 0, 0.830819, -2.22598, -5.78637, -3.23334)
+
+[node name="Copo" parent="." instance=ExtResource("5_ovbmc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.87, -5.603, 4.868)
+
+[connection signal="pressed" from="Scene1/SubViewportContainer/SubViewport/Control/ColorRect/VBoxContainer/HBoxContainer/ColorRect3/btnQuit" to="Scene1" method="_on_btn_quit_pressed"]
+[connection signal="pressed" from="Scene1/SubViewportContainer/SubViewport/Control/ColorRect/VBoxContainer/ColorRect/MarginContainer/TabContainer/Play/HBoxContainer/PanelContainer/VBoxContainer/btnPlay" to="Scene1" method="_on_btn_play_pressed"]
+[connection signal="pressed" from="Scene1/SubViewportContainer/SubViewport/Control/ColorRect/VBoxContainer/ColorRect/MarginContainer/TabContainer/Play/HBoxContainer/PanelContainer/VBoxContainer/btnQuit" to="Scene1" method="_on_btn_quit_pressed"]
+[connection signal="value_changed" from="Scene1/SubViewportContainer/SubViewport/Control/ColorRect/VBoxContainer/ColorRect/MarginContainer/TabContainer/Options/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/Master" to="Scene1" method="_on_Master_slider_value_changed"]
+[connection signal="value_changed" from="Scene1/SubViewportContainer/SubViewport/Control/ColorRect/VBoxContainer/ColorRect/MarginContainer/TabContainer/Options/MarginContainer/VBoxContainer/HBoxContainer2/VBoxContainer/SFX" to="Scene1" method="_on_sfx_value_changed"]
+[connection signal="value_changed" from="Scene1/SubViewportContainer/SubViewport/Control/ColorRect/VBoxContainer/ColorRect/MarginContainer/TabContainer/Options/MarginContainer/VBoxContainer/HBoxContainer3/VBoxContainer/MUS" to="Scene1" method="_on_mus_value_changed"]
+[connection signal="animation_finished" from="Scene1/AnimationPlayer" to="Scene1" method="_on_animation_player_animation_finished"]
